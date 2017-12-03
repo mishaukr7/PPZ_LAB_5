@@ -129,7 +129,7 @@ def pivotAbout(tableau, pivot):
     for k, row in enumerate(tableau):
         if k != i:
             pivotRowMultiple = [y * tableau[k][j] for y in tableau[i]]
-            tableau[k] = [x - y for x,y in zip(tableau[k], pivotRowMultiple)]
+            tableau[k] = [x - y for x, y in zip(tableau[k], pivotRowMultiple)]
 
 
 def simplex(c, A, b):
@@ -138,5 +138,4 @@ def simplex(c, A, b):
       pivot = findPivotIndex(tableau)
       pivotAbout(tableau, pivot)
     return tableau, objectiveValue(tableau)
-
 

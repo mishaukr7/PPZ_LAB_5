@@ -34,7 +34,7 @@ def main():
             for i in range(number_of_constraint):
                 a = []
                 for j in range(number_of_values):
-                    a.append(float(input('Enter a_{0}_{1}'.format(i+1, j+1))))
+                    a.append(float(input('Enter a_{0}_{1}: '.format(i+1, j+1))))
                 matrix_A.append(a)
             break
         except ValueError:
@@ -59,15 +59,36 @@ def main():
     print('-'*30)
     print('RESULT:')
     print('END SIMPLEX TABLE:')
-    [print(x) for x in t]
-    print('Point of maximum:')
+    #[print(x) for x in t]
     for row in t:
-        i = 0
+        new_row = []
+        for i in range(-1, 2*number_of_constraint-1):
+            new_row.append(row[i])
+        print(new_row)
+    print('Point of maximum:')
+    list_counter = []
+    # for row in t:
+    #     i = 1
+    #     if t.index(row) < number_of_values-1:
+    #         list_counter.append(t.index(row))
+    #         for value in row:
+    #             if value == 1 and row.index(value) <= number_of_values - 1:
+    #                 print('t_{0} = '.format(i), row[-1])
+    #             i += 1
+    #         if len(list_counter) < number_of_values:
+    #             [print('t_{0} = '.format(x), 0) for x in range(number_of_values - len(list_counter) + 1, number_of_values + 1)]
+    #     else:
+    #         break
+    list_counter = []
+    for row in t:
+        i = 1
         for value in row:
             if value == 1 and row.index(value) <= number_of_values - 1:
-                print('t_{0} = '.format(i+1), row[-1])
+                print('t_{0} = '.format(i), row[-1])
             i += 1
     print('Maximum function =', v)
     return v
 
+
 main()
+
